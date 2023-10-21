@@ -17,17 +17,17 @@ public class NotificationSender {
 
     private void scheduleNotification() {
         // Calculate the delay until the next occurrence of the specified time
-        long initialDelay = calculateInitialDelay(0);
+        long initialDelay = calculateInitialDelay();
 
         scheduler.scheduleAtFixedRate(() -> {
             // Send the notification to users here
         }, initialDelay, 24, TimeUnit.HOURS);
     }
 
-    private long calculateInitialDelay(int minute) {
+    private long calculateInitialDelay() {
         // Calculate the initial delay until the specified time
         long currentMillis = System.currentTimeMillis();
-        long targetMillis = getTimeInMillis(minute);
+        long targetMillis = getTimeInMillis();
 
         // Calculate the delay in milliseconds
         long initialDelay = targetMillis - currentMillis;
@@ -40,12 +40,12 @@ public class NotificationSender {
         return initialDelay;
     }
 
-    private long getTimeInMillis(int minute) {
+    private long getTimeInMillis() {
         long currentTime = System.currentTimeMillis();
         long currentHour = TimeUnit.MILLISECONDS.toHours(currentTime);
         long currentMinute = TimeUnit.MILLISECONDS.toMinutes(currentTime - TimeUnit.HOURS.toMillis(currentHour));
 
-        long targetTime = TimeUnit.HOURS.toMillis(9) + TimeUnit.MINUTES.toMillis(minute);
+        long targetTime = TimeUnit.HOURS.toMillis(9) + TimeUnit.MINUTES.toMillis(0);
 
         // Calculate the target time in milliseconds
         return currentTime - TimeUnit.HOURS.toMillis(currentHour) - TimeUnit.MINUTES.toMillis(currentMinute) + targetTime;
