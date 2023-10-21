@@ -15,7 +15,6 @@ public class LanguageTranslation extends TelegramLongPollingBot {
             // Translate the user's text to different languages
             String translatedTextUkrainian = translateText(userText, "uk");
             String translatedTextEnglish = translateText(userText, "en");
-            String translatedTextGerman = translateText(userText, "de");
 
             // Create a response with translated text
             StringBuilder responseText = new StringBuilder("Translations:\n");
