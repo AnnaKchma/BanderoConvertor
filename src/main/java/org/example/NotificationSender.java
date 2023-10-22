@@ -100,7 +100,7 @@ public class NotificationSender extends TelegramLongPollingBot {
 
     @Override
     public String getBotToken() {
-        return "6805411508:AAFSxU76lQliK8Qb87xNI0YjrAlZsoNLmE4";2
+        return "6805411508:AAFSxU76lQliK8Qb87xNI0YjrAlZsoNLmE4";
     }
 
     public static void main(String[] args) {
